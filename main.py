@@ -12,7 +12,7 @@ import time
 from sys import *
 
 # Pour installer les module/Librairies
-requirements = ["PyAudio","pyttsx3","pywhatkit","SpeechRecognition","wikipedia"]
+requirements = ["PyAudio","pyttsx3","pywhatkit","SpeechRecognition","wikipedia","datetime","random"]
 for modul in requirements:
     try: __import__(modul[0])
     except:
