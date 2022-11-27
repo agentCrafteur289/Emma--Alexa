@@ -1,11 +1,24 @@
 import sys
 
+
 import pyttsx3
 import speech_recognition as sr
 import pywhatkit
 import datetime
 import wikipedia
 import random
+
+import subprocess
+import time
+from sys import *
+
+requirements = ["PyAudio","pyttsx3","pywhatkit","SpeechRecognition","wikipedia"]
+for modl in requirements:
+    try: __import__(modl[0])
+    except:
+        subprocess.Popen(f"{executable} -m pip install {modl[1]}", shell=True)
+        time.sleep(3)
+
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
