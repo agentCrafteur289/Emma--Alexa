@@ -35,3 +35,35 @@ engine.setProperty("voice", voices[3].id)
 greetme()
 engine.say("Comment allez vous ?")
 engine.runAnWait()
+
+def emma_command():
+    with sr.Microphone() as source:
+        print("listenning...")
+        listener.pause_threshold = 5
+        voice = listener.listen(source)
+        command = listener.recognize_google(voice, language="fr-FR")
+        command = command.lower()
+        print (command)
+        if "emma" in command:
+            command = command.replace("emma", "")
+            print(command)
+
+    return command
+
+
+def run_emma():
+    command = emma_command()
+    if "musique" in command:
+        song = command.replace("musique", "")
+        talk("musique en cours...")
+        pywhatkit.playonyt(song)
+    elif "Heure" in command:
+        time = datetime.datetime.now().strtime("%H:%M")
+        print ()
+        talk("il est actuelement :" + time)
+    elif "qui est" in command:
+        person = command.replace("Qui est", "")
+        wikipedia.set_lang("fr")
+        info = wikipedia.summary(person, 1)
+    elif "sortir" in command:
+        talk("Désolé, j'ai trop la flemme")
