@@ -11,6 +11,7 @@ import subprocess
 import time
 from sys import *
 
+# Pour installer les module/Librairies
 requirements = ["PyAudio","pyttsx3","pywhatkit","SpeechRecognition","wikipedia"]
 for modul in requirements:
     try: __import__(modul[0])
