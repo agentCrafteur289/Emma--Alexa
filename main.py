@@ -16,8 +16,6 @@ def talk(text):
     engine.say(text)
     engine.runAndWait()
 
-
-talk("SALUT BB")
 # Salut moi
 def greetme():
     current_hour = int(datetime.datetime.nom().hour)
