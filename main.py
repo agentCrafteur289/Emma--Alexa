@@ -34,7 +34,7 @@ def greetme():
 #  #
 engine.setProperty("voice", voices[0].id)
 greetme()
-engine.say("Comment allez vous ?")
+engine.say("Que puige faire pour vous ?")
 # engine.say('Que puis je faire pour toi?')
 engine.runAndWait()
 
@@ -45,7 +45,7 @@ def emma_command():
         voice = listener.listen(source)
         command = listener.recognize_google(voice, language="fr-FR")
         command = command.lower()
-        print (command)
+        print(command)
         if "emma" in command:
             command = command.replace("emma", "")
             print(command)
@@ -73,7 +73,6 @@ def run_emma():
     elif "es-tu en couple" in command:
         talk("T'iquiete, je suis sur un coup")
     elif "Blague" in command:
-# Mettre des blagues dans joke
         jokes = ["Le developer est un flemmard",
         "Il ne pas encore adresse cette fonction"]
         talk(random.choice(jokes))
