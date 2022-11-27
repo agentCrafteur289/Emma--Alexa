@@ -31,7 +31,7 @@ def greetme():
 
 # Set french female voice (changer l'indice [3] si la voix n'est pas bonne)
 voices = engine.getProperty("voices")
-engine.setProperty("voice", voices[3].id)
+engine.setProperty("voice", voices[1].id)
 greetme()
 engine.say("Comment allez vous ?")
 engine.runAnWait()
@@ -67,3 +67,25 @@ def run_emma():
         info = wikipedia.summary(person, 1)
     elif "sortir" in command:
         talk("Désolé, j'ai trop la flemme")
+    elif "es-tu en couple" in command:
+        talk("T'iquiete, je suis sur un coup")
+    elif "Blague" in command:
+# Mettre des blagues dans joke
+        jokes = ["Le developer est un flemmard",
+        "Il ne pas encore adresse cette fonction"]
+        talk(random.choice(jokes))
+    elif "et toi" in command:
+        msgs = ["Je fais juste mon truc !",
+        "Je vais bien !",
+        "Bien !",
+        "Je suis bien et plein d'énergie."]
+        talk(random.choice(msgs))
+    elif "désactive toi" in command:
+        talk("Merci de m'avoir utilisé")
+        sys.exit()
+    else:
+        talk("Pourrais tu repété ? je n'ai pas bien compris")
+
+if __name__ == '__main__':
+    while True:
+        run_emma()
