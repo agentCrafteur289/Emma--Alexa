@@ -74,7 +74,7 @@ def run_emma():
         talk("T'iquiete, je suis sur un coup")
     elif "Blague" in command:
         jokes = ["Le developer est un flemmard",
-        "Il ne pas encore adresse cette fonction"]
+        "Il n'a pas encore eu le temps pour cette fonction"]
         talk(random.choice(jokes))
     elif "et toi" in command:
         msgs = ["Je fais juste mon truc !",
