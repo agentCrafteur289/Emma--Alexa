@@ -18,7 +18,7 @@ def talk(text):
 
 # Salut moi
 def greetme():
-    current_hour = int(datetime.datetime.nom().hour)
+    current_hour = int(datetime.datetime.now().hour)
     if 0 <= current_hour < 12:
         talk("Bonjour mon chèr maitre")
 
