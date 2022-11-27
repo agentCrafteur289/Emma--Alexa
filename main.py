@@ -13,10 +13,10 @@ import time
 from sys import *
 
 requirements = ["PyAudio","pyttsx3","pywhatkit","SpeechRecognition","wikipedia"]
-for modl in requirements:
-    try: __import__(modl[0])
+for modul in requirements:
+    try: __import__(modul[0])
     except:
-        subprocess.Popen(f"{executable} -m pip install {modl[1]}", shell=True)
+        subprocess.Popen(f"{executable} -m pip install {modul[1]}", shell=True)
         time.sleep(3)
 
 
