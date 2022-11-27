@@ -11,6 +11,7 @@ listener = sr.Recognizer()
 engine = pyttsx3.init()
 engine.setProperty("voice","french")
 engine.setProperty("rate", 170)
+voices = engine.getProperty("voices")
 
 def talk(text):
     engine.say(text)
@@ -20,21 +21,22 @@ def talk(text):
 def greetme():
     current_hour = int(datetime.datetime.now().hour)
     if 0 <= current_hour < 12:
-        talk("Bonjour mon chèr maitre")
+        talk("Bonjour !")
 
-    if 12 <= current_hour < 10:
-        talk("Bon après midi, chèr maitre")
+    if 12 <= current_hour < 18:
+        talk("Bonne après midi !")
     
-    if current_hour >= 10 and current_hour != 0:
-        talk("Bonsoir chèr maitre")
+    if current_hour >= 18 and current_hour != 0:
+        talk("Bonsoir !")
 
 
 # Set french female voice (changer l'indice [3] si la voix n'est pas bonne)
-voices = engine.getProperty("voices")
-engine.setProperty("voice", voices[1].id)
+#  #
+engine.setProperty("voice", voices[0].id)
 greetme()
 engine.say("Comment allez vous ?")
-engine.runAnWait()
+# engine.say('Que puis je faire pour toi?')
+engine.runAndWait()
 
 def emma_command():
     with sr.Microphone() as source:
@@ -56,10 +58,11 @@ def run_emma():
     if "musique" in command:
         song = command.replace("musique", "")
         talk("musique en cours...")
+        print(song)
         pywhatkit.playonyt(song)
     elif "Heure" in command:
         time = datetime.datetime.now().strtime("%H:%M")
-        print ()
+        print(time)
         talk("il est actuelement :" + time)
     elif "qui est" in command:
         person = command.replace("Qui est", "")
@@ -85,6 +88,7 @@ def run_emma():
         sys.exit()
     else:
         talk("Pourrais tu repété ? je n'ai pas bien compris")
+
 
 if __name__ == '__main__':
     while True:
