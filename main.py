@@ -94,7 +94,7 @@ def run_emma():
         "Bien !",
         "Je suis bien et plein d'énergie."]
         talk(random.choice(msgs))
-    elif "désactive toi" in command:
+    elif "stop toi" in command:
         talk("Merci de m'avoir utilisé")
         sys.exit()
     else:
