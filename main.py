@@ -7,17 +7,17 @@ import datetime
 import wikipedia
 import random
 
-import subprocess
-import time
-from sys import *
+# import subprocess
+# import time
+# from sys import *
 
 # Pour installer les module/Librairies
-requirements = ["PyAudio","pyttsx3","pywhatkit","SpeechRecognition","wikipedia","datetime","random"]
-for modul in requirements:
-    try: __import__(modul[0])
-    except:
-        subprocess.Popen(f"{executable} -m pip install {modul[1]}", shell=True)
-        time.sleep(3)
+# requirements = ["PyAudio","pyttsx3","pywhatkit","SpeechRecognition","wikipedia","datetime","random"]
+# for modul in requirements:
+#     try: __import__(modul[0])
+#     except:
+#         subprocess.Popen(f"{executable} -m pip install {modul[1]}", shell=True)
+#         time.sleep(3)
 
 
 listener = sr.Recognizer()
@@ -44,11 +44,10 @@ def greetme():
 
 
 # Set french female voice (changer l'indice [3] si la voix n'est pas bonne)
-#  #
+
 engine.setProperty("voice", voices[0].id)
 greetme()
 engine.say("Que puige faire pour vous ?")
-# engine.say('Que puis je faire pour toi?')
 engine.runAndWait()
 
 def emma_command():
@@ -73,8 +72,8 @@ def run_emma():
         talk("musique en cours...")
         print(song)
         pywhatkit.playonyt(song)
-    elif "Heure" in command:
-        time = datetime.datetime.now().strtime("%H:%M")
+    elif "heure" in command:
+        time = datetime.datetime.now().strftime("%H:%M")
         print(time)
         talk("il est actuelement :" + time)
     elif "qui est" in command:
@@ -85,7 +84,7 @@ def run_emma():
         talk("Désolé, j'ai trop la flemme")
     elif "es-tu en couple" in command:
         talk("T'iquiete, je suis sur un coup")
-    elif "Blague" in command:
+    elif "blague" in command:
         jokes = ["Le developer est un flemmard",
         "Il n'a pas encore eu le temps pour cette fonction"]
         talk(random.choice(jokes))
