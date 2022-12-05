@@ -97,8 +97,14 @@ def run_emma():
     elif "stop toi" in command:
         talk("Merci de m'avoir utilisé")
         sys.exit()
+    elif "jenna" in command:
+        talk("jenna elle est thaah adopter")
+    elif "chahid" in command:
+        talk("L'homosexualite de cette personne ne devrait pas etre un blem")
+    elif "entend" in command:
+        talk("OUI, parfaitement")
     else:
-        talk("Pourrais tu repété ? je n'ai pas bien compris")
+        talk("Pourrais tu repété ? je n'ai pas bien compris") 
 
 
 if __name__ == '__main__':
